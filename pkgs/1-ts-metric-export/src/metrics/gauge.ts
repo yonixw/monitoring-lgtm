@@ -3,7 +3,7 @@ import Prometheus from "prom-client";
 
 const gauge = new Prometheus.Gauge({
     name: "gauge_example",
-    help: "Gauge can go up and down",
+    help: "Gauge is a number with: inc(),dec(),set(),reset()",
     labelNames: ["labelG1", "labelTimer1", "labelTimer2"] as const,
     aggregator: "sum" // 'sum', 'first', 'min', 'max', 'average' or 'omit' 
 });
