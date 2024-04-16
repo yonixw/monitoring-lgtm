@@ -3,8 +3,9 @@ import Prometheus from "prom-client";
 
 const counter = new Prometheus.Counter({
   name: "counter_example",
-  help: "This help will be a comment in the metrics endpoint",
-  labelNames: ["label1"] as const,
+  help: "Counter is integer from 0 supports: add(num=1), reset()",
+  labelNames: ["labelC1"] as const,
+  aggregator: "sum" // 'sum', 'first', 'min', 'max', 'average' or 'omit'
 });
 
 // inc() is updating a single label
@@ -15,12 +16,24 @@ const counter = new Prometheus.Counter({
 export async function setupCounter(app: Express) {
   app.get(["/counter/add", "/counter/add/:num"], async (req, res) => {
     const add = parseInt(req.params.num) || 0;
-    if (add > 0) {
+    if (add !== 0) {
       counter.inc(add); // NULL label only
-      counter.inc({ label1: add });
+      counter.inc({ labelC1: add });
     } else {
       counter.inc(); // NULL label only
-      counter.inc({ label1: 1 });
+      counter.inc({ labelC1: 1 });
+    }
+    res.send({ counter: await counter.get() });
+  });
+
+  app.get(["/counter/addf", "/counter/addf/:num"], async (req, res) => {
+    const add = parseFloat(req.params.num) || 0;
+    if (add !== 0) {
+      counter.inc(add); // NULL label only
+      counter.inc({ labelC1: add });
+    } else {
+      counter.inc(); // NULL label only
+      counter.inc({ labelC1: 1 });
     }
     res.send({ counter: await counter.get() });
   });
@@ -32,5 +45,3 @@ export async function setupCounter(app: Express) {
 
   console.log("[setupCounter] DONE");
 }
-
-// ==============================================
