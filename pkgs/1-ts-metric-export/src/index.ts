@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import Prometheus from "prom-client";
 import { setupCounter } from "./metrics/counter";
 import { setupGauge } from "./metrics/gauge";
+import { setupHistogram } from "./metrics/histogram";
 
 const app: Express = express();
 const port = 3001 || process.env.PORT;
@@ -12,6 +13,7 @@ const port = 3001 || process.env.PORT;
 async function setupMain() {
   await setupCounter(app);
   await setupGauge(app);
+  await setupHistogram(app);
 
   app.get("/metrics", async (req, res) => {
     res.set("Content-Type", Prometheus.register.contentType);
