@@ -1,6 +1,12 @@
 import { Express } from "express";
 import Prometheus from "prom-client";
 
+/*
+Also used to count versions, so you can count sub-scopes, from offical examples:
+# TYPE nodejs_version_info gauge
+nodejs_version_info{version="v18.12.1",major="18",minor="12",patch="1"} 1
+*/
+
 const gauge = new Prometheus.Gauge({
     name: "gauge_example",
     help: "Gauge is almost like float with: inc(n=1),dec(n=1),set(),reset(); example show set to time()",

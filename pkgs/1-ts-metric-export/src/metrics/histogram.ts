@@ -16,5 +16,25 @@ export async function setupHistogram(app: Express) {
         res.send({ x, histogram: await histogram.get() })
     })
 
+    app.get(["/hist/reset"], async (req, res) => {
+        histogram.reset();
+        res.send({ histogram: await histogram.get() })
+    })
+
+    app.get(["/hist/zero"], async (req, res) => {
+        histogram.zero({ scope_Hist: "example1" });
+        res.send({ histogram: await histogram.get() })
+    })
+
+    app.get(["/hist/zero-no-label"], async (req, res) => {
+        histogram.zero({});
+        res.send({ histogram: await histogram.get() })
+    })
+
+    app.get(["/hist/timer"], async (req, res) => {
+        const timerCB = histogram.startTimer({ scope_Hist: "timer" })
+        res.send({ tick: timerCB(), histogram: await histogram.get() })
+    })
+
     console.log("[setupHistogram] DONE");
 }
