@@ -44,6 +44,9 @@ Logs and Tracing
         Do we ditch console logs once and for all and just make it colorful json/emojis?
     How to know if trace have logs? 
     How to know if log have trace?
+    Logs manipulation?
+        Aggregate (throttle, debounce)
+        Convert fields like time, ENUMS etc...
 
 
 Dynamic Logs with Sidekick
