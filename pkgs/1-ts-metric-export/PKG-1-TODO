@@ -1,0 +1,6 @@
+Summary [A1 in links]
+    Histogram but in moving-time-window, and no pre buckets (you can query percentiles)
+
+Function that will convert label name according to conventions
+    https://prometheus.io/docs/instrumenting/writing_exporters/#naming
+    https://prometheus.io/docs/practices/naming/

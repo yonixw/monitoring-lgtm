@@ -6,5 +6,5 @@ https://www.npmjs.com/package/prom-client
 
 https://github.com/RisingStack/example-prometheus-nodejs
 
-https://prometheus.io/docs/practices/histograms/
+[A1] https://prometheus.io/docs/practices/histograms/
     https://stackoverflow.com/questions/56297842/what-does-prometheus-summary-observe-method-do
