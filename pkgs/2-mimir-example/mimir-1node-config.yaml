@@ -4,7 +4,11 @@
 
 # Do not use this configuration in production.
 # It is for demonstration purposes only.
-multitenancy_enabled: false
+multitenancy_enabled: true
+
+limits:
+  # Delete from storage metrics data older than 1 year.
+  compactor_blocks_retention_period: 1y
 
 blocks_storage:
   backend: filesystem
