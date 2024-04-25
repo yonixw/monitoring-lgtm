@@ -17,6 +17,8 @@ Metric Tooling:
         Predict AI? (Mock predict)
             AI from TODAY minus [7,14,30,90,180] days
         Shift by X minutes? by single RATE[] ? Can we just do it by query (delta query)?
+        Combine API request, to a virtual 1:
+            https://github.com/jacksontj/promxy
     Think about decoupling collecter, so he can report "service 0" if down
         or a "meta" metric about latest collections and if all EP are up
 
