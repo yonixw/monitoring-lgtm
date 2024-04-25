@@ -4,12 +4,19 @@ Metric Tooling:
     Simple text modification to the /metrics endpoint? (proxy)
     Filter metrics (dynamic) when pulling?
     Add labels to certain existing sources
+        https://prometheus.io/docs/prometheus/latest/configuration/configuration/
     Retention per  metric? / label? / both?
+        per promotheus: 
+            https://stackoverflow.com/questions/59298811/increasing-prometheus-storage-retention
+        or mimir per tenant
+            "... Grafana Mimir doesn’t support per-series deletion and retention, nor does it support Prometheus’ Delete series API."
+            https://grafana.com/docs/mimir/latest/configure/configure-metrics-storage-retention/
     Jobs of aggregations:
+        Mimir "recording rule"
         Group by day
         Predict AI? (Mock predict)
             AI from TODAY minus [7,14,30,90,180] days
-        Shift by X minutes? by single RATE[] ? Can we just do it by query?
+        Shift by X minutes? by single RATE[] ? Can we just do it by query (delta query)?
     Think about decoupling collecter, so he can report "service 0" if down
         or a "meta" metric about latest collections and if all EP are up
 
