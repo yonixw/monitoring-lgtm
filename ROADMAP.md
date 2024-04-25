@@ -3,7 +3,7 @@ Metrics to be stored in Mimir (not old promotheus)
 Metric Tooling:
     Simple text modification to the /metrics endpoint? (proxy)
     Filter metrics (dynamic) when pulling?
-    Add labels to certain sources
+    Add labels to certain existing sources
     Retention per  metric? / label? / both?
     Jobs of aggregations:
         Group by day
@@ -21,6 +21,8 @@ Grafana
         user with magic url?
     Drill down, can you remember what label in prev dash?
         like same dash var `$__rate_interval` from https://prometheus.io/docs/visualization/grafana/
+    Graphs from config
+        https://github.com/grafana/mimir/blob/main/docs/sources/mimir/get-started/play-with-grafana-mimir/docker-compose.yml
 
 Alerts
     can you do per label? (like per env but with same metric name?)
